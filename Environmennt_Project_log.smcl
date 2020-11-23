@@ -1,0 +1,327 @@
+{smcl}
+{com}{sf}{ul off}{txt}{.-}
+      name:  {res}<unnamed>
+       {txt}log:  {res}/Users/patrickpoleshuk/Downloads/Environmennt_Project_log.smcl
+  {txt}log type:  {res}smcl
+ {txt}opened on:  {res}26 Jun 2020, 21:55:46
+{txt}
+{com}. 
+. import delimited "/Users/patrickpoleshuk/Downloads/API_NY.GDP.PCAP.CD_DS2_en_csv_v2_1120951 2/API_NY.GDP.PCAP.CD_DS2_en_csv_v2_1120951.csv", varnames(1) clear 
+{res}{text}(65 vars, 266 obs)
+
+{com}. 
+. forvalues x=5(1)64{c -(}
+{txt}  2{com}. local y= `x'+1955
+{txt}  3{com}. rename v`x' GDP`y' 
+{txt}  4{com}. {c )-}
+{res}{txt}
+{com}. drop v65 worlddevel~s v3 v4
+{txt}
+{com}. rename ïdatasource countryname
+{res}{txt}
+{com}. reshape long GDP, i(countryname) j(year)
+{txt}(note: j = 1960 1961 1962 1963 1964 1965 1966 1967 1968 1969 1970 1971 1972 1973 1974 1975 1976 1977 1978 1979 1980 1981 1982 1983 1984 1985 1986 1987 1988 1989 1990 1991 1992 1993 1994 1995 1996 1997 1998 1999 2000 2001 2002 2003 2004 2005 2006 2007 2008 2009 2010 2011 2012 2013 2014 2015 2016 2017 2018 2019)
+
+Data{col 36}wide{col 43}->{col 48}long
+{hline 77}
+Number of obs.                 {res}     266   {txt}->{res}   15960
+{txt}Number of variables            {res}      61   {txt}->{res}       3
+{txt}j variable (60 values)                    ->   {res}year
+{txt}xij variables:
+            {res}GDP1960 GDP1961 ... GDP2019   {txt}->   {res}GDP
+{txt}{hline 77}
+
+{com}. sort countryname year
+{txt}
+{com}. save "/Users/patrickpoleshuk/Downloads/GDP.dta", replace
+{txt}file /Users/patrickpoleshuk/Downloads/GDP.dta saved
+
+{com}. 
+. *------------------------
+. 
+. import delimited "/Users/patrickpoleshuk/Desktop/API_GB.XPD.RSDV.GD.ZS_DS2_en_csv_v2_1120937 (1)/API_GB.XPD.RSDV.GD.ZS_DS2_en_csv_v2_1120937.csv", varnames(1) clear 
+{res}{text}(65 vars, 266 obs)
+
+{com}. forvalues x=5(1)64{c -(}
+{txt}  2{com}. local y= `x'+1955
+{txt}  3{com}. rename v`x' RD`y' 
+{txt}  4{com}. {c )-}
+{res}{txt}
+{com}. drop v65 worlddevel~s v3 v4
+{txt}
+{com}. rename ïdatasource countryname
+{res}{txt}
+{com}. reshape long RD, i(countryname) j(year)
+{txt}(note: j = 1960 1961 1962 1963 1964 1965 1966 1967 1968 1969 1970 1971 1972 1973 1974 1975 1976 1977 1978 1979 1980 1981 1982 1983 1984 1985 1986 1987 1988 1989 1990 1991 1992 1993 1994 1995 1996 1997 1998 1999 2000 2001 2002 2003 2004 2005 2006 2007 2008 2009 2010 2011 2012 2013 2014 2015 2016 2017 2018 2019)
+
+Data{col 36}wide{col 43}->{col 48}long
+{hline 77}
+Number of obs.                 {res}     266   {txt}->{res}   15960
+{txt}Number of variables            {res}      61   {txt}->{res}       3
+{txt}j variable (60 values)                    ->   {res}year
+{txt}xij variables:
+               {res}RD1960 RD1961 ... RD2019   {txt}->   {res}RD
+{txt}{hline 77}
+
+{com}. sort countryname year
+{txt}
+{com}. save "/Users/patrickpoleshuk/Downloads/RD.dta", replace
+{txt}file /Users/patrickpoleshuk/Downloads/RD.dta saved
+
+{com}. *------------------------
+. 
+. import delimited "/Users/patrickpoleshuk/Desktop/API_AG.PRD.LVSK.XD_DS2_en_csv_v2_1125343/API_AG.PRD.LVSK.XD_DS2_en_csv_v2_1125343.csv", varnames(1) clear 
+{res}{text}(65 vars, 266 obs)
+
+{com}. 
+. forvalues x=5(1)64{c -(}
+{txt}  2{com}. local y= `x'+1955
+{txt}  3{com}. rename v`x' LIVESTOCK`y' 
+{txt}  4{com}. {c )-}
+{res}{txt}
+{com}. drop v65 worlddevel~s v3 v4
+{txt}
+{com}. rename ïdatasource countryname
+{res}{txt}
+{com}. reshape long LIVESTOCK, i(countryname) j(year)
+{txt}(note: j = 1960 1961 1962 1963 1964 1965 1966 1967 1968 1969 1970 1971 1972 1973 1974 1975 1976 1977 1978 1979 1980 1981 1982 1983 1984 1985 1986 1987 1988 1989 1990 1991 1992 1993 1994 1995 1996 1997 1998 1999 2000 2001 2002 2003 2004 2005 2006 2007 2008 2009 2010 2011 2012 2013 2014 2015 2016 2017 2018 2019)
+
+Data{col 36}wide{col 43}->{col 48}long
+{hline 77}
+Number of obs.                 {res}     266   {txt}->{res}   15960
+{txt}Number of variables            {res}      61   {txt}->{res}       3
+{txt}j variable (60 values)                    ->   {res}year
+{txt}xij variables:
+{res}LIVESTOCK1960 LIVESTOCK1961 ... LIVESTOCK2019{txt}->{res}LIVESTOCK
+{txt}{hline 77}
+
+{com}. sort countryname year
+{txt}
+{com}. save "/Users/patrickpoleshuk/Downloads/LIVESTOCK.dta", replace
+{txt}file /Users/patrickpoleshuk/Downloads/LIVESTOCK.dta saved
+
+{com}. 
+. *------------------------
+. import delimited "/Users/patrickpoleshuk/Desktop/API_EG.ELC.FOSL.ZS_DS2_en_csv_v2_1125297 2/API_EG.ELC.FOSL.ZS_DS2_en_csv_v2_1125297.csv", varnames(1) clear 
+{res}{text}(65 vars, 266 obs)
+
+{com}. 
+. forvalues x=5(1)64{c -(}
+{txt}  2{com}. local y= `x'+1955
+{txt}  3{com}. rename v`x' COAL`y' 
+{txt}  4{com}. {c )-}
+{res}{txt}
+{com}. drop v65 worlddevel~s v3 v4
+{txt}
+{com}. rename ïdatasource countryname
+{res}{txt}
+{com}. reshape long COAL, i(countryname) j(year)
+{txt}(note: j = 1960 1961 1962 1963 1964 1965 1966 1967 1968 1969 1970 1971 1972 1973 1974 1975 1976 1977 1978 1979 1980 1981 1982 1983 1984 1985 1986 1987 1988 1989 1990 1991 1992 1993 1994 1995 1996 1997 1998 1999 2000 2001 2002 2003 2004 2005 2006 2007 2008 2009 2010 2011 2012 2013 2014 2015 2016 2017 2018 2019)
+
+Data{col 36}wide{col 43}->{col 48}long
+{hline 77}
+Number of obs.                 {res}     266   {txt}->{res}   15960
+{txt}Number of variables            {res}      61   {txt}->{res}       3
+{txt}j variable (60 values)                    ->   {res}year
+{txt}xij variables:
+         {res}COAL1960 COAL1961 ... COAL2019   {txt}->   {res}COAL
+{txt}{hline 77}
+
+{com}. sort countryname year
+{txt}
+{com}. save "/Users/patrickpoleshuk/Downloads/COAL.dta", replace
+{txt}file /Users/patrickpoleshuk/Downloads/COAL.dta saved
+
+{com}. 
+. *------------------------
+. import delimited "/Users/patrickpoleshuk/Downloads/API_EN.ATM.CO2E.KT_DS2_en_csv_v2_1120888/API_EN.ATM.CO2E.KT_DS2_en_csv_v2_1120888.csv", varnames(1) clear 
+{res}{text}(65 vars, 266 obs)
+
+{com}. 
+. forvalues x=5(1)64{c -(}
+{txt}  2{com}. local y= `x'+1955
+{txt}  3{com}. rename v`x' CO2`y' 
+{txt}  4{com}. {c )-}
+{res}{txt}
+{com}. drop v65 worlddevel~s v3 v4
+{txt}
+{com}. rename ïdatasource countryname
+{res}{txt}
+{com}. reshape long CO2, i(countryname) j(year)
+{txt}(note: j = 1960 1961 1962 1963 1964 1965 1966 1967 1968 1969 1970 1971 1972 1973 1974 1975 1976 1977 1978 1979 1980 1981 1982 1983 1984 1985 1986 1987 1988 1989 1990 1991 1992 1993 1994 1995 1996 1997 1998 1999 2000 2001 2002 2003 2004 2005 2006 2007 2008 2009 2010 2011 2012 2013 2014 2015 2016 2017 2018 2019)
+
+Data{col 36}wide{col 43}->{col 48}long
+{hline 77}
+Number of obs.                 {res}     266   {txt}->{res}   15960
+{txt}Number of variables            {res}      61   {txt}->{res}       3
+{txt}j variable (60 values)                    ->   {res}year
+{txt}xij variables:
+            {res}CO21960 CO21961 ... CO22019   {txt}->   {res}CO2
+{txt}{hline 77}
+
+{com}. sort countryname year
+{txt}
+{com}. save "/Users/patrickpoleshuk/Downloads/CO2.dta", replace
+{txt}file /Users/patrickpoleshuk/Downloads/CO2.dta saved
+
+{com}. 
+. use  "/Users/patrickpoleshuk/Downloads/GDP.dta", clear
+{txt}
+{com}. merge 1:1 countryname year using "/Users/patrickpoleshuk/Downloads/CO2.dta"
+{res}
+{txt}{col 5}Result{col 38}# of obs.
+{col 5}{hline 41}
+{col 5}not matched{col 30}{res}               0
+{txt}{col 5}matched{col 30}{res}          15,960{txt}  (_merge==3)
+{col 5}{hline 41}
+
+{com}. keep if _merge==3
+{txt}(0 observations deleted)
+
+{com}. drop _merge
+{txt}
+{com}. merge 1:1 countryname year using "/Users/patrickpoleshuk/Downloads/RD.dta"
+{res}
+{txt}{col 5}Result{col 38}# of obs.
+{col 5}{hline 41}
+{col 5}not matched{col 30}{res}               0
+{txt}{col 5}matched{col 30}{res}          15,960{txt}  (_merge==3)
+{col 5}{hline 41}
+
+{com}. keep if _merge==3
+{txt}(0 observations deleted)
+
+{com}. drop _merge
+{txt}
+{com}. merge 1:1 countryname year using "/Users/patrickpoleshuk/Downloads/LIVESTOCK.dta"
+{res}
+{txt}{col 5}Result{col 38}# of obs.
+{col 5}{hline 41}
+{col 5}not matched{col 30}{res}               0
+{txt}{col 5}matched{col 30}{res}          15,960{txt}  (_merge==3)
+{col 5}{hline 41}
+
+{com}. keep if _merge==3
+{txt}(0 observations deleted)
+
+{com}. drop _merge
+{txt}
+{com}. merge 1:1 countryname year using "/Users/patrickpoleshuk/Downloads/COAL.dta"
+{res}
+{txt}{col 5}Result{col 38}# of obs.
+{col 5}{hline 41}
+{col 5}not matched{col 30}{res}               0
+{txt}{col 5}matched{col 30}{res}          15,960{txt}  (_merge==3)
+{col 5}{hline 41}
+
+{com}. keep if _merge==3
+{txt}(0 observations deleted)
+
+{com}. drop _merge
+{txt}
+{com}. 
+. keep if countryname=="United States"
+{txt}(15,900 observations deleted)
+
+{com}. 
+. keep if year >= 1960
+{txt}(0 observations deleted)
+
+{com}. count if GDP!=. & CO2!=. & RD!=. & LIVESTOCK!=. & COAL!=.
+  {res}19
+{txt}
+{com}. 
+. save "/Users/patrickpoleshuk/Downloads/all.dta", replace
+{txt}file /Users/patrickpoleshuk/Downloads/all.dta saved
+
+{com}. 
+. generate lnGDP = ln(GDP)
+{txt}(1 missing value generated)
+
+{com}. generate lnRD = ln(RD)
+{txt}(38 missing values generated)
+
+{com}. gen lnCOAL = ln(COAL)
+{txt}(4 missing values generated)
+
+{com}. 
+. reg CO2 lnGDP, r
+
+{txt}Linear regression                               Number of obs     = {res}        55
+                                                {txt}F(1, 53)          =  {res}   193.58
+                                                {txt}Prob > F          = {res}    0.0000
+                                                {txt}R-squared         = {res}    0.8262
+                                                {txt}Root MSE          =    {res} 3.3e+05
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}    Robust
+{col 1}         CO2{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 7}lnGDP {c |}{col 14}{res}{space 2} 763120.9{col 26}{space 2} 54848.21{col 37}{space 1}   13.91{col 46}{space 3}0.000{col 54}{space 4} 653109.3{col 67}{space 3} 873132.5
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} -2666854{col 26}{space 2} 548560.9{col 37}{space 1}   -4.86{col 46}{space 3}0.000{col 54}{space 4} -3767128{col 67}{space 3} -1566581
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}. display e(r2_a) 
+{res}.82295838
+{txt}
+{com}. 
+. predict Y_hat2
+{txt}(option {bf:xb} assumed; fitted values)
+(1 missing value generated)
+
+{com}. graph twoway (lfitci CO2 lnGDP) (scatter CO2 lnGDP)
+{res}{txt}
+{com}. 
+. 
+. reg CO2 lnGDP lnCOAL lnRD, r
+
+{txt}Linear regression                               Number of obs     = {res}        19
+                                                {txt}F(3, 15)          =  {res}    60.05
+                                                {txt}Prob > F          = {res}    0.0000
+                                                {txt}R-squared         = {res}    0.8360
+                                                {txt}Root MSE          =    {res}  99230
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}    Robust
+{col 1}         CO2{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 7}lnGDP {c |}{col 14}{res}{space 2} 466823.7{col 26}{space 2} 177888.4{col 37}{space 1}    2.62{col 46}{space 3}0.019{col 54}{space 4} 87663.42{col 67}{space 3} 845983.9
+{txt}{space 6}lnCOAL {c |}{col 14}{res}{space 2}  9345945{col 26}{space 2} 996571.9{col 37}{space 1}    9.38{col 46}{space 3}0.000{col 54}{space 4}  7221802{col 67}{space 3} 1.15e+07
+{txt}{space 8}lnRD {c |}{col 14}{res}{space 2} -1705636{col 26}{space 2} 595304.8{col 37}{space 1}   -2.87{col 46}{space 3}0.012{col 54}{space 4} -2974498{col 67}{space 3}-436773.8
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2}-3.76e+07{col 26}{space 2}  4059075{col 37}{space 1}   -9.26{col 46}{space 3}0.000{col 54}{space 4}-4.63e+07{col 67}{space 3}-2.89e+07
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}. display e(r2_a) 
+{res}.80317131
+{txt}
+{com}. 
+. * Note "LIVESTOCK" is not used in a multi-linear regression over problems with multicollinearity among other independent variables. 
+. reg CO2 LIVESTOCK, r
+
+{txt}Linear regression                               Number of obs     = {res}        54
+                                                {txt}F(1, 52)          =  {res}    93.24
+                                                {txt}Prob > F          = {res}    0.0000
+                                                {txt}R-squared         = {res}    0.7468
+                                                {txt}Root MSE          =    {res} 3.8e+05
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}    Robust
+{col 1}         CO2{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 3}LIVESTOCK {c |}{col 14}{res}{space 2} 39074.97{col 26}{space 2} 4046.716{col 37}{space 1}    9.66{col 46}{space 3}0.000{col 54}{space 4} 30954.64{col 67}{space 3}  47195.3
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2}  1598489{col 26}{space 2} 344394.7{col 37}{space 1}    4.64{col 46}{space 3}0.000{col 54}{space 4} 907410.8{col 67}{space 3}  2289568
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}. display e(r2_a) 
+{res}.74189706
+{txt}
+{com}. 
+. 
+. log close 
+      {txt}name:  {res}<unnamed>
+       {txt}log:  {res}/Users/patrickpoleshuk/Downloads/Environmennt_Project_log.smcl
+  {txt}log type:  {res}smcl
+ {txt}closed on:  {res}26 Jun 2020, 21:55:51
+{txt}{.-}
+{smcl}
+{txt}{sf}{ul off}
